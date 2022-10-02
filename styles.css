@@ -94,6 +94,53 @@ body {
     color: var(--bg);
 }
 
+.book-card {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardButtons {
+    margin-bottom: 15px;
+    width: 90%;
+    gap: 8px;
+}
+
+.bookInfo {
+    margin-top: 55px;
+    gap: 20px;
+}
+
+.bookInfo, .cardButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookInfo > b, .cardButtons > div {
+    font-size: 2.3rem;
+}
+
+.remove, .changeRead {
+    color: black;
+    background-color: var(--bg);
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.changeRead {
+    background-color: darkgreen;
+}
+
+.red {
+    background-color: darkred;
+}
+
 /* styling add-page card */
 
 .modal {
