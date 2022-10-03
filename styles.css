@@ -88,6 +88,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .add-svg {
@@ -131,6 +132,7 @@ body {
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+    cursor: pointer;
 }
 
 .changeRead {
@@ -139,6 +141,7 @@ body {
 
 .red {
     background-color: darkred;
+    cursor: pointer;
 }
 
 /* styling add-page card */
@@ -215,6 +218,7 @@ input[type=checkbox] {
     outline: 0;
     width: 49%;
     background-color: var(--bg);
+    cursor: pointer;
 }
 
 .add-button:hover {
