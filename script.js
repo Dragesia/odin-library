@@ -101,7 +101,7 @@ function createBookCard(book) {
 
     bookCard.appendChild(cardButtons);
 
-    container.appendChild(bookCard);
+    container.insertBefore(bookCard, addCard);
 }
 
 function Book(title, author, pages, isRead) {
