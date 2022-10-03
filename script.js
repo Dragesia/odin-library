@@ -17,11 +17,17 @@ cancelButton.onclick = () => modal.style.display = "";
 let myLibrary = [];
 
 function addBook() {
+    if (!form.checkValidity()) return;
+
     const newBook = new Book(bookName.value, author.value, pages.value, read.checked);
 
     myLibrary.push(newBook);
 
     createBookCard(myLibrary[myLibrary.length-1]);
+
+    form.reset();
+    modal.style.display = "";
+
 }
 
 addButton.onclick = addBook;
