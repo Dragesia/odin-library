@@ -1,4 +1,5 @@
 const container = document.querySelector(".books");
+const form = document.querySelector(".add-page");
 
 const modal = document.querySelector(".modal");
 const addCard = document.querySelector(".add");
@@ -16,7 +17,7 @@ cancelButton.onclick = () => modal.style.display = "";
 let myLibrary = [];
 
 function addBook() {
-    const newBook = new Book(bookName.value, author.value, pages.value, read.value);
+    const newBook = new Book(bookName.value, author.value, pages.value, read.checked);
 
     myLibrary.push(newBook);
 
