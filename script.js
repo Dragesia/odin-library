@@ -54,7 +54,7 @@ addButton.onclick = addBook;
 
 function createBookCard(book) {
     const bookCard = document.createElement("div");
-    bookCard.classList.add("card", "book-card");
+    bookCard.classList.add("card", "book-card", "animate");
     bookCard.setAttribute("data-name", book.title);
 
     const bookInfo = document.createElement("div");
