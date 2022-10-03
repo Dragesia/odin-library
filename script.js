@@ -70,10 +70,15 @@ function createBookCard(book) {
 
     changeRead.onclick = () => {
         changeRead.classList.toggle("red");
+        const index = myLibrary.findIndex(obj => {
+            return obj.title === book.title;
+        });
         if (changeRead.classList.contains("red")) {
             changeRead.innerHTML = "Not read";
+            myLibrary[index].isRead = false;
         } else {
             changeRead.innerHTML = "Read";
+            myLibrary[index].isRead = true;
         }
     }
 
@@ -83,7 +88,6 @@ function createBookCard(book) {
 
     removeBtn.onclick = () => {
         if (myLibrary.length != 0) {
-            console.log("xD");
             const index = myLibrary.findIndex(obj => {
                 return obj.title === book.title;
             });
