@@ -11,6 +11,14 @@ const author = document.querySelector("input[name=author]");
 const pages = document.querySelector("input[name=pages]");
 const read = document.querySelector("input[name=read]");
 
+const bookCountText = document.querySelector("#books");
+const booksReadText = document.querySelector("#booksread");
+const totalPagesText = document.querySelector("#pages");
+
+let bookCount = 0;
+let booksRead = 0;
+let totalPages = 0;
+
 addCard.onclick = () => modal.style.display = "flex";
 cancelButton.onclick = () => modal.style.display = "";
 
@@ -18,6 +26,18 @@ let myLibrary = [];
 
 function addBook() {
     if (!form.checkValidity()) return;
+
+    bookCount++;
+    bookCountText.innerHTML = bookCount;
+
+    totalPages += pages.value - 0;
+    totalPagesText.innerHTML = totalPages;
+
+    if (read.checked) {
+        booksRead++;
+        booksReadText.innerHTML = booksRead;
+    }
+
 
     const newBook = new Book(bookName.value, author.value, pages.value, read.checked);
 
@@ -80,9 +100,13 @@ function createBookCard(book) {
             return obj.title === book.title;
         });
         if (changeRead.classList.contains("red")) {
+            booksRead--;
+            booksReadText.innerHTML = booksRead;
             changeRead.innerHTML = "Not read";
             myLibrary[index].isRead = false;
         } else {
+            booksRead++;
+            booksReadText.innerHTML = booksRead;
             changeRead.innerHTML = "Read";
             myLibrary[index].isRead = true;
         }
@@ -94,9 +118,20 @@ function createBookCard(book) {
 
     removeBtn.onclick = () => {
         if (myLibrary.length != 0) {
+            bookCount--;
+            bookCountText.innerHTML = bookCount;
+
             const index = myLibrary.findIndex(obj => {
                 return obj.title === book.title;
             });
+
+            totalPages -= myLibrary[index].pages;
+            totalPagesText.innerHTML = totalPages;
+
+            if (myLibrary[index].isRead) {
+                booksRead--;
+                booksReadText.innerHTML = booksRead;
+            }
             myLibrary.splice(index, 1);
             container.removeChild(bookCard);
         }
